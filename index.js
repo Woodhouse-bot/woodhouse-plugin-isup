@@ -1,12 +1,13 @@
 http = require('http');
 
-module.exports = function(api) {
+module.exports = function() {
 
     this.name = 'isup';
 
     this.init = function(){
-        api.listen('is (.+?) up\\?', function(from, interface, params){
-            api.sendMessage('Let me just check...', interface, from);
+        var self = this;
+        this.api.listen('is (.+?) up\\?', function(from, interface, params){
+            self.api.sendMessage('Let me just check...', interface, from);
             var options = {
                 hostname: 'isup.me',
                 path: '/' + params[0],
@@ -34,7 +35,7 @@ module.exports = function(api) {
                         reply = params[0] + ' returned an error'
                     }
 
-                    api.sendMessage(reply, interface, from);
+                    self.api.sendMessage(reply, interface, from);
                 })
             })
 
