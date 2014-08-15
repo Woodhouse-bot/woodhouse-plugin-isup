@@ -3,6 +3,8 @@ http = require('http');
 module.exports = function() {
 
     this.name = 'isup';
+    this.displayname = 'Is It Up?';
+    this.description = 'Ask woodhouse to check if a website is up';
 
     this.init = function(){
         var self = this;
