@@ -8,8 +8,8 @@ module.exports = function() {
 
     this.init = function(){
         var self = this;
-        this.api.listen('is (.+?) up\\?', function(from, interface, params){
-            self.api.sendMessage('Let me just check...', interface, from);
+        this.listen('is (.+?) up\\?', function(from, interface, params){
+            self.sendMessage('Let me just check...', interface, from);
             var options = {
                 hostname: 'isup.me',
                 path: '/' + params[0],
@@ -37,7 +37,7 @@ module.exports = function() {
                         reply = params[0] + ' returned an error'
                     }
 
-                    self.api.sendMessage(reply, interface, from);
+                    self.sendMessage(reply, interface, from);
                 })
             })
 
