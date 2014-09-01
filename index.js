@@ -8,7 +8,7 @@ module.exports = function() {
 
     this.init = function(){
         var self = this;
-        this.listen('is (.+?) up\\?', function(from, interface, params){
+        this.listen('is (.+?) (up|down)(\\?|)', function(from, interface, params){
             self.sendMessage('Let me just check...', interface, from);
             var options = {
                 hostname: 'isup.me',
