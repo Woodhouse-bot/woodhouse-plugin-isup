@@ -12,7 +12,7 @@ var isup = function() {
 
 isup.prototype.init = function(){
     var self = this;
-    this.listen('is (.+?) (up|down)(\\?|)', 'standard', function(from, interface, params){
+    this.listen('is (:<url>.+?) (up|down)(\\?|)', 'standard', function(from, interface, params){
         self.sendMessage('Let me just check...', interface, from);
         var options = {
             hostname: 'isup.me',
